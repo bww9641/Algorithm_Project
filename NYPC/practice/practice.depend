@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1565948161 source:d:\coding\algorithm\nypc\practice\main.cpp
+	<string.h>
+	<string.h>
+	<algorithm>
+	<queue>
+	<vector>
+	<algorithm>
+	<string.h>
+	<iostream>
+	<algorithm>
+	<string>
+	<algorithm>
+	<vector>
+	<stdio.h>
+	<math.h>
+	<math.h>
+	<vector>
+	<queue>
+	<algorithm>
+	<cstdio>
+	<vector>
+	<queue>
+	<functional>
+	<algorithm>
+	<vector>
+	<stdio.h>
+	<algorithm>
+	<vector>
+	<vector>
+	<algorithm>
+

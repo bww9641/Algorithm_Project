@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1565614572 source:d:\coding\algorithm\khu_contest\190812\main.cpp
+	<stdio.h>
+	<iostream>
+	<algorithm>
+	<string>
+

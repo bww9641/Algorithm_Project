@@ -2,6 +2,7 @@
 
 int main()
 {
-	printf("Hello\n");
-	return 0;
+  
+  int n;
+  scanf("%d",&n);
 }

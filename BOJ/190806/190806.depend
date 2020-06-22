@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1565060824 source:d:\coding\algorithm\boj\190806\main.cpp
+	<algorithm>
+	<stdio.h>
+
