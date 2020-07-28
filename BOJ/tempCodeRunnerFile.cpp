@@ -2,12 +2,34 @@
 
 int main()
 {
-  int T,h,w,n;
-  scanf("%d",&T);
-  for(int i=0;i<T;i++)
+  char a[1005][105]={};
+  int n,sw=0,min=105;
+  scanf("%d",&n);
+  for(int i=0;i<n;i++)
   {
-    scanf("%d %d %d",&h,&w,&n);
-    printf("%d%02d",n%h+1,n%h==0?n/h:n/h+1);
+    scanf("%s",a[i]);
   }
+  for(int i=n-1;i>=0;i--)
+  {
+    for(int j=0;j<n;j++)
+    {
+      for(int k=j+1;k<n;k++)
+      {
+        sw=0;
+        for(int l=n-1;l>=i;l--)
+        {
+          if(a[j][l]!=a[k][l])
+          {
+            sw=1;
+            break;
+          }
+        }
+        if(sw==0) break;
+      }
+      if(sw==0) break;
+    }
+    if(sw==1)  min=n-i;
+  }
+  printf("%d",min);
   return 0;
 }
