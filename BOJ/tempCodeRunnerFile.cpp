@@ -1,35 +1,29 @@
 #include<stdio.h>
+#include<math.h>
+double dist(int x1, int y1, int x2, int y2)
+{
+  return pow((double)x1-x2,2)+pow((double)y1-y2,2);
+}
 
 int main()
 {
-  char a[1005][105]={};
-  int n,sw=0,min=105;
-  scanf("%d",&n);
-  for(int i=0;i<n;i++)
+  int t,x1,y1,r1,x2,y2,r2;
+  double d,p,s;
+  scanf("%d",&t);
+  for(int i=0;i<t;i++)
   {
-    scanf("%s",a[i]);
+    scanf("%d %d %d %d %d %d",&x1,&y1,&r1,&x2,&y2,&r2);
+    d=dist(x1,y1,x2,y2);
+    p=(double)r1+r2;
+    s=(double)abs(r1-r2);
+    printf("%lf %lf %lf\n",d,p,s);
+    if(p*p>d && s*s<d) printf("2\n");
+    else if(p*p==d) printf("1\n");
+    else if(p*p<d) printf("0\n");
+    else if(s*s>d) printf("0\n");
+    else if(s*s==d) printf("1\n");
+    else if(d==0 && r1==r2) printf("-1\n");
+    else if(d==0 && r1!=r2) printf("0\n");
   }
-  for(int i=n-1;i>=0;i--)
-  {
-    for(int j=0;j<n;j++)
-    {
-      for(int k=j+1;k<n;k++)
-      {
-        sw=0;
-        for(int l=n-1;l>=i;l--)
-        {
-          if(a[j][l]!=a[k][l])
-          {
-            sw=1;
-            break;
-          }
-        }
-        if(sw==0) break;
-      }
-      if(sw==0) break;
-    }
-    if(sw==1)  min=n-i;
-  }
-  printf("%d",min);
   return 0;
 }
