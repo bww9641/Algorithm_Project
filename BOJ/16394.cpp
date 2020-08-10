@@ -4,6 +4,6 @@ int main()
 {
   int var;
   scanf("%d",&var);
-  printf("%d",2018-var);
+  printf("%d",var-1946);
   return 0;
 }
