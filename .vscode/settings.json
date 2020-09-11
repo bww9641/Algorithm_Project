@@ -51,6 +51,7 @@
             "xstring": "cpp",
             "string": "cpp",
             "system_error": "cpp",
-            "cstdlib": "cpp"
+            "cstdlib": "cpp",
+            "random": "cpp"
         },
 }
