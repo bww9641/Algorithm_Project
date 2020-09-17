@@ -1,65 +1,58 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+
 using namespace std;
- 
-const int yy[] = {-1, -1, -1, 0, 1, 1, 1, 0}, xx[] = {-1, 0, 1, 1, 1, 0, -1, -1};
- 
-int N, K;
-short D[19][18][1<<19];
-bool F[19][18][1<<19];
-bool A[51][51];
- 
-int main()
-{
-    scanf("%d%d", &N, &K);
-    for (int i=1;i<=K;i++){
-        int r, c; scanf("%d%d", &r, &c); r--; c--;
-        A[r][c] = 1;
-    }
-    memset(D, -1, sizeof(D));
-    D[0][0][0] = 0;
-    for (int i=0;i<N;i++){
-        for (int j=0;j<N;j++) for (int msk=0;msk<1<<N+1;msk++) if (D[i][j][msk] >= 0){
-            short myv = D[i][j][msk];
-            int sub = (1 << (N+1))-1;
-            int nmsk = (msk << 1) & sub;
- 
-            int ny = i, nx = j+1;
-            if (nx == N) ny++, nx = 0;
- 
-            if (D[ny][nx][nmsk] < myv){
-                D[ny][nx][nmsk] = myv;
-                F[ny][nx][nmsk] = msk>>N&1;
+
+int main(){
+    vector<int> a[20];
+    for(int i=1;i<=118;i++){
+        if(i%2){
+            if(i%3){
+                if(i%4){
+                    if(i%5){
+                        if(i%6){
+                            if(i%7){
+                                if(i%8){
+                                    if(i%9){
+                                        a[0].push_back(i);
+                                    }
+                                    else{
+                                        a[1].push_back(i);
+                                    }
+                                }
+                                else{
+                                    a[2].push_back(i);
+                                }
+                            }
+                            else{
+                                a[3].push_back(i);
+                            }
+                        }
+                        else{
+                            a[4].push_back(i);
+                        }
+                    }
+                    else{
+                        a[5].push_back(i);
+                    }
+                }
+                else{
+                    a[6].push_back(i);
+                }
             }
- 
-            if (j > 0 && msk>>N&1 || msk>>N-1&1 || j+1 < N && msk>>N-2&1 || j > 0 && msk&1 || A[i][j]) continue;
- 
-            if (D[ny][nx][nmsk^1] < myv+1){
-                D[ny][nx][nmsk^1] = myv+1;
-                F[ny][nx][nmsk^1] = msk>>N&1;
+            else{
+                a[7].push_back(i);
             }
         }
-    }
-    short ans = 0;
-    int y = N, x = 0, cur = 0;
-    for (int msk=0;msk<1<<N+1;msk++){
-        if (ans < D[N][0][msk]){
-            ans = D[N][0][msk];
-            cur = msk;
+        else{
+            a[8].push_back(i);
         }
     }
-    printf("%d\n", ans);
-    if (!ans) return 0;
-    vector <pair<int, int>> arr;
-    while (y != 0 || x != 0){
-        if (cur&1){
-            if (x > 0) arr.emplace_back(y, x-1);
-            else arr.emplace_back(y-1, N-1);
+    for(int i=0;i<9;i++){
+        cout << i << ": ";
+        for(auto x: a[i]){
+            cout << x%8 << ' ';
         }
-        int bef = cur>>1 | (F[y][x][cur] << N);
-        if (x == 0) y--, x = N-1;
-        else x--;
-        cur = bef;
+        cout << '\n';
     }
-    assert(arr.size() == ans);
-    for (auto &p: arr) printf("%d %d\n", p.first+1, p.second+1);
+    return 0;
 }
